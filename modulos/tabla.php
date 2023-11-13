@@ -74,13 +74,13 @@ if ($_GET['accion'] == 'guardar_eliminar') {
 
 ?>
 
-<div class="form_cargarproductos">
-    <div>
-        <h1>Carga de Productos</h1>
-        <hr>
-    </div>
-    <div class="org_registro">
-        <?php
+	<div class="form_cargarproductos">
+		<div>
+			<h1>Carga de Productos</h1>
+			<hr>
+		</div>
+		<div class="org_registro">
+			<?php
         if ($_GET['accion'] == 'editar') {
             $url = 'index.php?modulo=tabla&accion=guardar_editar&id=' . $_GET['id'];
             $sql = "SELECT *FROM discos WHERE id = " . $_GET['id'];
@@ -93,90 +93,88 @@ if ($_GET['accion'] == 'guardar_eliminar') {
             $r['id']= $r['nombre'] = $r['descripcion'] = $r['precio'] = $r['foto'] = '';
         }
         ?>
-        <form class="org_form_registro" form action="<?php echo $url; ?>" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-                <label class="form-label" for="number">ID</label>
-                <input type="number" id="id" class="form-control" placeholder="Ingresa el codigo unitario de producto" name="id" value="<?php echo $r['id']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="nombre">Nombre del producto</label>
-                <input type="text" id="nombre" class="form-control" placeholder="Ingresa el nombre del producto" name="nombre" value="<?php echo $r['nombre']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="nombre">Descripcion</label>
-                <input type="text" id="descripcion" class="form-control" placeholder="Ingresa una descripcion" name="descripcion"
-                    value="<?php echo $r['descripcion']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="precio">Precio</label>
-                <input type="number" id="precio" class="form-control" placeholder="Ingresa un precio en pesos ARS" name="precio" value="<?php echo $r['precio']; ?>">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="foto">foto</label>
-                <input type="file" class="form-control" id="foto" name="foto" required>
-                <?php
+				<form class="org_form_registro" form action="<?php echo $url; ?>" method="POST" enctype="multipart/form-data">
+					<div class="mb-3">
+						<label class="form-label" for="number">ID</label>
+						<input type="number" id="id" class="form-control" placeholder="Ingresa el codigo unitario de producto" name="id" value="<?php echo $r['id']; ?>" required>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="nombre">Nombre del producto</label>
+						<input type="text" id="nombre" class="form-control" placeholder="Ingresa el nombre del producto" name="nombre" value="<?php echo $r['nombre']; ?>" required>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="nombre">Descripcion</label>
+						<input type="text" id="descripcion" class="form-control" placeholder="Ingresa una descripcion" name="descripcion" value="<?php echo $r['descripcion']; ?>" required>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="precio">Precio</label>
+						<input type="number" id="precio" class="form-control" placeholder="Ingresa un precio en pesos ARS" name="precio" value="<?php echo $r['precio']; ?>">
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="foto">foto</label>
+						<input type="file" class="form-control" id="foto" name="foto" required>
+						<?php
                 if (!empty($r['foto'])) {
                     ?>
-                    <img src="imagenes/<?php echo $r['foto']; ?>" width="50%">
-                    <?php
+							<img src="imagenes/<?php echo $r['foto']; ?>" width="50%">
+							<?php
                 }
                 ?>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Cargar</button>
-        </form>
-    </div>
-</div>
+					</div>
+					<button type="submit" class="btn btn-primary btn-block">Cargar</button>
+				</form>
+		</div>
+	</div>
 
-<div class="org_carga_tabla">
-    <div>
-        <h1>Productos cargados</h1>
-    </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Opciones</th>
+	<div class="org_carga_tabla">
+		<div>
+			<h1>Productos cargados</h1>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Descripcion</th>
+					<th scope="col">Foto</th>
+					<th scope="col">Precio</th>
+					<th scope="col">Opciones</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            <?php
+				</tr>
+			</thead>
+			<tbody>
+				<?php
             $sql = "SELECT id, nombre,descripcion,foto,precio FROM discos where eliminado = 0 ORDER BY id";
             $sql = mysqli_query($con, $sql);
             if (mysqli_num_rows($sql) != 0) {
                 while ($r = mysqli_fetch_array($sql)) {
                     ?>
-                    <tr>
-                        <th scope="row">
-                            <?php echo $r['id']; ?>
-                        </th>
-                        <td>
-                            <?php echo $r['nombre']; ?>
-                        </td>
-                        <td>
-                            <?php echo $r['descripcion']; ?>
-                        </td>
-                        <td>
-                            <?php ?> <img src="imagenes/<?php echo $r['foto']; ?>" width="100"><?php ?>
-                        </td>
-                        <td>
-                            <?php echo $r['precio']; ?> ARS
-                        </td>
-                        <td> <a href="index.php?modulo=tabla&accion=editar&id=<?php echo $r['id']; ?>">Editar</a>
-                            -
-                            <a
-                                href="javascript:if(confirm('Desea eliminar el registro?')) window.location='index.php?modulo=tabla&accion=guardar_eliminar&id=<?php echo $r['id']; ?>'">Eliminar</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <?php
+					<tr>
+						<th scope="row">
+							<?php echo $r['id']; ?>
+						</th>
+						<td>
+							<?php echo $r['nombre']; ?>
+						</td>
+						<td>
+							<?php echo $r['descripcion']; ?>
+						</td>
+						<td>
+							<?php ?> <img src="imagenes/<?php echo $r['foto']; ?>" width="100">
+							<?php ?>
+						</td>
+						<td>
+							<?php echo $r['precio']; ?> ARS
+						</td>
+						<td> <a href="index.php?modulo=tabla&accion=editar&id=<?php echo $r['id']; ?>">Editar</a> -
+							<a href="javascript:if(confirm('Desea eliminar el registro?')) window.location='index.php?modulo=tabla&accion=guardar_eliminar&id=<?php echo $r['id']; ?>'">Eliminar</a>
+						</td>
+					</tr>
+					<tr>
+						<?php
                 }
             }
             ?>
-        </tbody>
-    </table>
-</div>
+			</tbody>
+		</table>
+	</div>

@@ -11,29 +11,29 @@ if ($resultado_compras) {
         $compra_id = $fila_compra['id'];
         $total_compra = $fila_compra['total'];
         ?>
-       <div class="ticket">
-            <?php
+	<div class="ticket">
+		<?php
             ?>
-            <h1>Id de compra:
+			<h1>Id de compra:
                 <?php echo $compra_id ?>
             </h1>
-            <h1>Total:
+			<h1>Total:
                 <p><?php echo $total_compra ?> ARS </p> 
             </h1>
-            <?php
+			<?php
             // Consulta para obtener los detalles de la compra
             $sql_detalles = "SELECT * FROM comprasxproducto WHERE compras_id = '$compra_id'";
             $resultado_detalles = mysqli_query($con, $sql_detalles);
 
             // Mostrar los detalles de la compra
             ?>
-            <table>
-                <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Precio Unitario</th>
-                </tr>
-                <?php
+				<table>
+					<tr>
+						<th>Producto</th>
+						<th>Cantidad</th>
+						<th>Precio Unitario</th>
+					</tr>
+					<?php
                 while ($fila_detalle = mysqli_fetch_assoc($resultado_detalles)) {
                     $producto_id = $fila_detalle['producto_id'];
                     $cantidad = $fila_detalle['cantidad'];
@@ -47,25 +47,25 @@ if ($resultado_compras) {
                         $nombre_producto = $fila_producto['nombre'];
                         // Mostrar información del detalle
                         ?>
-                        <tr>
-                            <td>
-                                <?php echo $nombre_producto ?>
-                            </td>
-                            <td>
-                                <?php echo $cantidad ?>
-                            </td>
-                            <td>
-                                <?php echo $precio_unitario ?> ARS
-                            </td>
-                        </tr>
-                        <?php
+						<tr>
+							<td>
+								<?php echo $nombre_producto ?>
+							</td>
+							<td>
+								<?php echo $cantidad ?>
+							</td>
+							<td>
+								<?php echo $precio_unitario ?> ARS
+							</td>
+						</tr>
+						<?php
                     }
                 }
-                ?>
-            </table>
-            <hr>
-        </div>
-        <?php
+            ?>
+				</table>
+			<hr>
+	</div>
+	<?php
     }
 }
 ?>

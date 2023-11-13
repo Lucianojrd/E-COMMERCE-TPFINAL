@@ -20,17 +20,17 @@ if (isset($_POST["nombre"]) && isset($_POST["correo"]) && isset($_POST["clave"])
 }
 ?>
 
-<form action="index.php?modulo=registro" method="POST">
-<img src="imagenes/registro.png" alt="Logo" class="logo">
-  <div class="form-outline mb-4">
-    <h1>Registro</h1>
-    <label class="form-label" for="nombre" >Nombre completo</label>
-    <input type="text" id="nombre" class="form-control" placeholder="Ingresa tu nombre completo" name="nombre" required />
-    <label class="form-label" for="email">Email</label>
-    <input type="email" id="email" class="clave" placeholder="Ingresa tu email" name="correo" required/>
-    <label class="form-label" for="clave">Contraseña</label>
-    <input type="password" id="clave" class="form-control" placeholder="Ingresa tu contraseña"name="clave"  required/>
+	<form action="index.php?modulo=registro" method="POST">
+		<img src="imagenes/registro.png" alt="Logo" class="logo">
+		<div class="form-outline mb-4">
+			<h1>Registro</h1>
+			<label class="form-label" for="nombre">Nombre completo</label>
+			<input type="text" id="nombre" class="form-control" placeholder="Ingresa tu nombre completo" name="nombre" required />
+			<label class="form-label" for="email">Email</label>
+			<input type="email" id="email" class="clave" placeholder="Ingresa tu email" name="correo" required/>
+			<label class="form-label" for="clave">Contraseña</label>
+			<input type="password" id="clave" class="form-control" placeholder="Ingresa tu contraseña" name="clave" required/>
 
-    <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
-  </div>
-</form>
+			<button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+		</div>
+	</form>

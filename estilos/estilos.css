@@ -166,13 +166,12 @@ input {
 /* fin registro */
 
 /*box producto*/
-/* Estilo general */
 * {
   box-sizing: border-box; /* Incluye el relleno y el borde en el ancho y el alto */
   font-family: Arial, sans-serif; /* Usa una fuente sans-serif */
 }
 
-/* Estilo del box de productos */
+
 .org_box {
   width: 600px; /* Define el ancho del box */
   margin: 20px auto; /* Centra el box horizontalmente y le da un margen de 20px */
@@ -181,41 +180,40 @@ input {
   align-items: center; /* Alinea los elementos verticalmente al centro */
 }
 
-/* Estilo de la imagen del producto */
+
 .org_box img {
   width: 300px; /* Define el ancho de la imagen */
   height: 300px; /* Define el alto de la imagen */
   object-fit: cover; /* Ajusta la imagen al tamaño del contenedor */
 }
 
-/* Estilo de la separación entre la imagen y los detalles */
+
 .org_box_separacion {
   width: 300px; /* Define el ancho de la sección de detalles */
   padding: 10px; /* Le da un relleno de 10px */
 }
 
-/* Estilo de los encabezados */
+
 .org_box h1 {
   font-size: 24px; /* Define el tamaño de la fuente */
   color: #333; /* Define el color de la fuente */
   margin: 10px 0; /* Le da un margen de 10px arriba y abajo */
 }
 
-/* Estilo del párrafo */
+
 .org_box p {
   font-size: 18px; /* Define el tamaño de la fuente */
   color: #666; /* Define el color de la fuente */
   margin: 10px 0; /* Le da un margen de 10px arriba y abajo */
 }
 
-/* Estilo del precio */
 .org_box h3 {
   font-size: 20px; /* Define el tamaño de la fuente */
   color: #4CAF50; /* Define el color de la fuente */
   margin: 10px 0; /* Le da un margen de 10px arriba y abajo */
 }
 
-/* Estilo de los enlaces y el botón */
+
 .org_a_box {
   display: block;
   align-items: center; /* Alinea los elementos verticalmente al centro */
@@ -231,7 +229,6 @@ input {
 color: #000000;
 display: block;
 }
-
 
 .org_a_box a:hover {
   opacity: 0.8; /* Reduce la opacidad al pasar el cursor */
@@ -253,7 +250,6 @@ display: block;
     text-align: center; /* Alinea el texto al centro */
   }
 }
-
 
 /*fin box */
 
@@ -328,6 +324,57 @@ display: block;
 }
 /*fin producto */
 
+/*carrito*/
+@media screen and (max-width: 600px) {
+  .table {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .table th, .table td {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
+
+  .table img {
+    width: 80px;
+  }
+
+  .table td {
+    display: block;
+    text-align: left;
+  }
+
+  .table td:nth-child(1) {
+    text-align: center;
+  }
+
+  .table td:nth-child(2)::before {
+    content: "Foto: ";
+  }
+
+  .table td:nth-child(3)::before {
+    content: "Nombre: ";
+  }
+
+  .table td:nth-child(4)::before {
+    content: "Precio Unitario: ";
+  }
+
+  .table td:nth-child(5)::before {
+    content: "Cantidad x producto: ";
+  }
+
+  .table td:nth-child(6)::before {
+    content: "Precio TOTAL: ";
+  }
+
+  .table td:nth-child(7)::before {
+    content: "Accion: ";
+  }
+}
+/*fin carrito*/
+
 /*ticket de compra*/
 .ticket {
   width: 650px;
@@ -370,5 +417,42 @@ display: block;
   border: none;
   border-bottom: 1px dashed #ccc;
 }
+@media only screen and (max-width: 600px) {
+  .ticket {
+    width: 90%;
+    margin: 10px auto;
+  }
 
+  .ticket h1, .ticket p {
+    margin: 5px;
+    font-size: 0.8rem;
+  }
+
+  .ticket table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .ticket table th, .ticket table td {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
+
+  .ticket table td {
+    display: block;
+    text-align: left;
+  }
+
+  .ticket table td:nth-child(1)::before {
+    content: "Producto: ";
+  }
+
+  .ticket table td:nth-child(2)::before {
+    content: "Cantidad: ";
+  }
+
+  .ticket table td:nth-child(3)::before {
+    content: "Precio Unitario: ";
+  }
+}
 /*fin ticket de compra*/

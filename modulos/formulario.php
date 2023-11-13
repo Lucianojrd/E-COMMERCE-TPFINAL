@@ -4,56 +4,56 @@ if (!isset($_GET['accion'])) {
 }
 if ($_GET['accion'] == 'form') {
     ?>
-    <form form action="index.php?modulo=formulario&accion=cargar_direccion" method="POST">
-        <div>
-            <label for="provincia">Provincia:</label>
-            <input type="text" id="provincia" name="provincia" required>
-        </div>
-        <div>
-            <label for="ciudad">Ciudad:</label>
-            <input type="text" id="ciudad" name="ciudad" required>
-        </div>
-        <div>
-            <label for="calle">Calle:</label>
-            <input type="text" id="calle" name="calle" required>
-        </div>
-        <div>
-            <label for="altura">Altura:</label>
-            <input type="number" id="altura" name="altura" required>
-        </div>
-        <div>
-            <button type="submit" class="btn btn-dark">Cargar Direccion</button>
-        </div>
-    </form>
-    <?php
+	<form form action="index.php?modulo=formulario&accion=cargar_direccion" method="POST">
+		<div>
+			<label for="provincia">Provincia:</label>
+			<input type="text" id="provincia" name="provincia" required>
+		</div>
+		<div>
+			<label for="ciudad">Ciudad:</label>
+			<input type="text" id="ciudad" name="ciudad" required>
+		</div>
+		<div>
+			<label for="calle">Calle:</label>
+			<input type="text" id="calle" name="calle" required>
+		</div>
+		<div>
+			<label for="altura">Altura:</label>
+			<input type="number" id="altura" name="altura" required>
+		</div>
+		<div>
+			<button type="submit" class="btn btn-dark">Cargar Direccion</button>
+		</div>
+	</form>
+	<?php
 }
 if ($_GET['accion'] == 'cargar_direccion') {
     ?>
-<form form action="index.php?modulo=formulario&accion=cargar_tarjeta" method="POST">
-  <div>
-    <label>Numero de tarjeta</label>
-    <input class="number" type="text" placeholder="Numeros de la tarjeta" maxlength="16" name="numero_tarjeta"  required/>
-    <label>Nombre propietario</label>
-    <input class="inputname" type="text" placeholder="Nombre del propietario de la tarjeta" required name="nombre_tarjeta"/>
-    <label>Security Number</label>
-    <input class="cvv" type="text" placeholder="CVV" maxlength="3" name="cvv" required/>
-  </div>
-    <div>
-        <button type="submit" class="btn btn-dark">Cargar tarjeta</button>
-    </div>
-</form>
-    <?php
+		<form form action="index.php?modulo=formulario&accion=cargar_tarjeta" method="POST">
+			<div>
+				<label>Numero de tarjeta</label>
+				<input class="number" type="text" placeholder="Numeros de la tarjeta" maxlength="16" name="numero_tarjeta" required/>
+				<label>Nombre propietario</label>
+				<input class="inputname" type="text" placeholder="Nombre del propietario de la tarjeta" required name="nombre_tarjeta" />
+				<label>Security Number</label>
+				<input class="cvv" type="text" placeholder="CVV" maxlength="3" name="cvv" required/>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-dark">Cargar tarjeta</button>
+			</div>
+		</form>
+		<?php
 }
 if ($_GET['accion'] == 'cargar_tarjeta') {
     ?>
-    <div style="text-align:center; padding-top:3rem;">
-        <a class="btn btn-danger" href="index.php?modulo=formulario&accion=confirmar_compra">Confirmar Compra</a>
-    </div>
-    <?php
+			<div style="text-align:center; padding-top:3rem;">
+				<a class="btn btn-danger" href="index.php?modulo=formulario&accion=confirmar_compra">Confirmar Compra</a>
+			</div>
+			<?php
     
 }
 ?>
-<?php
+				<?php
 
 
 if ($_GET['accion'] == 'cargar_tarjeta') {
