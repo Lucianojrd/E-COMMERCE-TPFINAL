@@ -373,6 +373,17 @@ display: block;
     content: "Accion: ";
   }
 }
+
+.vaciar_carrito{
+  display: inline-block;
+  background-color: #f44336; 
+  color: white ;
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  text-decoration: none;
+  font-size: 16px; 
+}
 /*fin carrito*/
 
 /*ticket de compra*/

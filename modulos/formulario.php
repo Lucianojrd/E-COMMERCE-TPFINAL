@@ -137,7 +137,7 @@ if ($_GET['accion'] == 'confirmar_compra') {
         if ($resultado_actualizar_total) { //Si se ejecuto es porque se realizo la compra entonces borramos carrito
             $sql_limpiar_carrito = "DELETE FROM carrito WHERE usuario_id = '$usuario_id'";
             mysqli_query($con, $sql_limpiar_carrito);
-            echo "<script> alert('COMPRA REALIZADA! MUCHAS GRACIAS!');</script>";
+            echo "<script> alert('SE CONCRETO SU COMPRA! GRACIAS');</script>";
             echo "<script>window.location='index.php';</script>";
         }
     }

@@ -21,9 +21,9 @@ if ($resultado_compras) {
                 <p><?php echo $total_compra ?> ARS </p> 
             </h1>
 			<?php
-            // Consulta para obtener los detalles de la compra
-            $sql_detalles = "SELECT * FROM comprasxproducto WHERE compras_id = '$compra_id'";
-            $resultado_detalles = mysqli_query($con, $sql_detalles);
+            // Consulta para obtener ticket de la compra
+            $sql_ticket = "SELECT * FROM comprasxproducto WHERE compras_id = '$compra_id'";
+            $resultado_compra = mysqli_query($con, $sql_ticket);
 
             // Mostrar los detalles de la compra
             ?>
@@ -34,12 +34,12 @@ if ($resultado_compras) {
 						<th>Precio Unitario</th>
 					</tr>
 					<?php
-                while ($fila_detalle = mysqli_fetch_assoc($resultado_detalles)) {
-                    $producto_id = $fila_detalle['producto_id'];
-                    $cantidad = $fila_detalle['cantidad'];
-                    $precio_unitario = $fila_detalle['precio_unitario'];
+                while ($fila_compra = mysqli_fetch_assoc($resultado_compra)) {
+                    $producto_id = $fila_compra['producto_id'];
+                    $cantidad = $fila_compra['cantidad'];
+                    $precio_unitario = $fila_compra['precio_unitario'];
 
-                    // Consulta para obtener nombre del producto desde la tabla 'ropas'
+                    // Consulta para obtener nombre del producto desde la tabla 'discos'
                     $sql_producto = "SELECT nombre FROM discos WHERE id = '$producto_id'";
                     $resultado_producto = mysqli_query($con, $sql_producto);
 
