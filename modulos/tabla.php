@@ -72,6 +72,36 @@ if ($_GET['accion'] == 'guardar_eliminar') {
     }
 }
 
+//subir precio
+if ($_GET['accion'] == 'actualizar_precio') {
+    // Obtener el id del usuario actual desde la variable de sesión
+    $usuario_id = $_SESSION['id'];
+    // Llamar al procedimiento almacenado con el id del usuario
+    $sql = "CALL update_price()";
+    $resultado = mysqli_query($con, $sql);
+
+    // Comprobar si hubo algún error
+    if (!$resultado) {
+        echo "Error: " . mysqli_error($con);
+    } else {
+        echo "Precio de los productos actualizado con éxito";
+    }
+}
+//bajar precio
+if ($_GET['accion'] == 'bajar_precio') {
+    // Obtener el id del usuario actual desde la variable de sesión
+    $usuario_id = $_SESSION['id'];
+    // Llamar al procedimiento almacenado con el id del usuario
+    $sql = "CALL decrease_price()";
+    $resultado = mysqli_query($con, $sql);
+
+    // Comprobar si hubo algún error
+    if (!$resultado) {
+        echo "Error: " . mysqli_error($con);
+    } else {
+        echo "Precio de los productos actualizado con éxito";
+    }
+}
 ?>
 
 	<div class="form_cargarproductos">
@@ -129,6 +159,9 @@ if ($_GET['accion'] == 'guardar_eliminar') {
 	<div class="org_carga_tabla">
 		<div>
 			<h1>Productos cargados</h1>
+			<a href="javascript:if(confirm('Desea actualizar precios?')) window.location='index.php?modulo=tabla&accion=actualizar_precio&id=<?php echo $r['id']; ?>'">Subir Precios</a>
+			<a href="javascript:if(confirm('Desea actualizar precios?')) window.location='index.php?modulo=tabla&accion=bajar_precio&id=<?php echo $r['id']; ?>'">Bajar Precios</a>
+	
 		</div>
 		<table class="table">
 			<thead>
